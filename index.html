@@ -2,10 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game Time</title>
+  <title>Breakout!</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <header><h1>Breakout</h1></header>
+  <canvas id="canvas" width="600" height="400"></canvas>
+  <section class="instructions">
+    <h2>Welcome to Breakout</h2>
+    <h4>How to Play</h4>
+    <h4>You have 3 lives to complete your mission, BREAK DEM BRICKS!</h4>
+    <ol>
+      <li>Press spacebar to launch the ball off the paddle.</li>
+      <li>Break bricks to score points.</li>
+      <li>Don't let ball get passed the paddle, it'll cost you 1 life.</li>
+      <li>Break all the bricks to win!!!</li>
+    </ol>
 
-  <script src="main.bundle.js"></script>
+  <script src="lib/index.js"></script>
 </body>
 </html>
