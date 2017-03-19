@@ -1,3 +1,23 @@
 #canvas {
+  border: 1px solid black;
+}
+
+#stats-canvas {
   border: 1px dashed black;
-};
+}
+
+#container {
+  display: flex;
+}
+
+.instructions {
+  padding: 20px;
+}
+
+#scoreboard {
+  position: absolute;
+  z-index: -1;
+  width: 521px;
+  height: 50px;
+  background: orange;
+}
