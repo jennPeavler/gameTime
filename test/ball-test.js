@@ -27,9 +27,9 @@ describe('Ball', function () {
     assert.property(ball, 'x');
   });
 
-  it('should have a property with a key named x', function() {
+  it('should have a property with a key named y', function() {
     var ball = new Ball(board, 10, 80);
-    assert.property(ball, 'x');
+    assert.property(ball, 'y');
   });
 
   it('should begin at an x position that is half the width of the canvas', function() {
