@@ -7,17 +7,23 @@
 </head>
 <body>
   <header><h1>Breakout</h1></header>
-  <canvas id="canvas" width="520" height="400"></canvas>
-  <section class="instructions">
-    <h2>Welcome to Breakout</h2>
-    <h4>How to Play</h4>
-    <h4>You have 3 lives to complete your mission, BREAK DEM BRICKS!</h4>
-    <ol>
-      <li>Press spacebar to launch the ball off the paddle.</li>
-      <li>Break bricks to score points.</li>
-      <li>Don't let ball get passed the paddle, it'll cost you 1 life.</li>
-      <li>Break all the bricks to win!!!</li>
-    </ol>
+  <div id='container'>
+    <canvas id="canvas" width="520" height="500"></canvas>
+    <div id='scoreboard'></div>
+    <section class="instructions">
+      <h2>Welcome to Breakout</h2>
+      <h3>How to Play</h3>
+      <h4>You have 3 lives to complete your mission, BREAK DEM BRICKS!</h4>
+      <ol>
+        <li>Press Spacebar to launch the ball off the paddle.</li>
+        <li>Break bricks to score points.</li>
+        <li>Don't let ball get passed the paddle, it'll cost you 1 life.</li>
+        <li>Break all the bricks to pass the level</li>
+        <li>Each level, the speed of the ball increases and the length of the paddle decreases</li>
+        <li>See how far you can go!!!</li>
+      </ol>
+    </section>
+  </div>
 
   <script src="main.bundle.js"></script>
 </body>
