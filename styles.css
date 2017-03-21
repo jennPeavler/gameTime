@@ -21,3 +21,11 @@
   height: 50px;
   background: orange;
 }
+
+#level-up {
+ font-size: 100px;
+ position: absolute;
+ margin-top: 180px;
+ margin-left: 30px;
+ display: none;
+}
