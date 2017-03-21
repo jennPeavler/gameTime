@@ -3,7 +3,7 @@ var Bricks = require('../lib/bricks');
 
 var board = {
   canvas: {width: 520, height: 500},
-  context: context
+  context
 }
 
 describe('Bricks', () => {
@@ -39,7 +39,7 @@ describe('Bricks', () => {
 
   it('should store a 5 by 5 array of bricks', () => {
     bricks.store();
-    for(c=0; c < 5; c++) {
+    for (let c = 0; c < 5; c++) {
       assert.equal(bricks.brick[c].length, 5);
     }
   });
