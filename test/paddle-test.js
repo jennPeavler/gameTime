@@ -1,6 +1,10 @@
 var assert = require('chai').assert;
 var Paddle = require('../lib/paddle');
 
+// import { assert } from 'chai';
+// import Paddle from '../lib/paddle';
+
+
 describe('Paddle', () => {
   const board = {
                   canvas: {width: 520, height: 500},
