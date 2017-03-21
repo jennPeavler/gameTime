@@ -3,7 +3,7 @@ var Ball = require('../lib/ball');
 
 var board = {
   canvas: {width: 520, height: 500},
-  context: context
+  context
 }
 
 describe('Ball', function () {
@@ -17,7 +17,7 @@ describe('Ball', function () {
     assert.isObject(ball);
   });
 
-  it('should have a radius of 5' , () => {
+  it('should have a radius of 5', () => {
     assert.equal(ball.radius, 5);
   });
 
@@ -33,7 +33,7 @@ describe('Ball', function () {
     assert.equal(ball.x, board.canvas.width/2);
   });
 
-  it('should know the paddle width and height',() => {
+  it('should know the paddle width and height', () => {
     assert.property(ball, 'paddleHeight');
     assert.property(ball, 'paddleWidth');
   });
