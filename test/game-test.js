@@ -5,7 +5,7 @@ const Ball = require('../lib/ball');
 const Bricks = require('../lib/bricks');
 const board = {
   canvas: {width: 520, height: 500},
-  context: context
+  context
 }
 
 
@@ -13,7 +13,7 @@ describe('Game', () => {
   let game = new Game(board);
 
   it('should be a function', () => {
-      assert.isFunction(Game);
+    assert.isFunction(Game);
   });
 
   it('should create a new game object', () => {
@@ -22,7 +22,6 @@ describe('Game', () => {
 
   it('should have stages', () => {
     game.stages()
-    console.log(game.stage)
     assert.property(game.stage, 'initiate')
   });
 });
