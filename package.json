@@ -20,15 +20,17 @@
   "homepage": "https://github.com/turingschool-examples/game-time-starter-kit-FEm1#readme",
   "devDependencies": {
     "babel": "^6.5.2",
-    "babel-core": "^6.18.2",
+
+    "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
     "chai": "^3.5.0",
     "css-loader": "^0.26.0",
     "mocha": "^3.1.2",
     "mocha-loader": "^1.0.0",
     "node-libs-browser": "^1.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.3",
+    "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
 }

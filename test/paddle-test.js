@@ -1,6 +1,10 @@
 var assert = require('chai').assert;
 var Paddle = require('../lib/paddle');
 
+// import { assert } from 'chai';
+// import Paddle from '../lib/paddle';
+
+
 describe('Paddle', () => {
   const board = {
                   canvas: {width: 520, height: 500},
@@ -53,5 +57,4 @@ describe('Paddle', () => {
     paddle.move();
     assert.notEqual(paddle.x, board.canvas.width/2 - paddle.width/2);
   });
->>>>>>> master
 })
