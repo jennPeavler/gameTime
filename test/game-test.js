@@ -21,7 +21,63 @@ describe('Game', () => {
   });
 
   it('should have stages', () => {
-    game.stages()
-    assert.property(game.stage, 'initiate')
+    assert.property(game, 'stage')
   });
+
+  it('should start with 3 lives', () => {
+    assert.equal(game.lives, 3)
+  });
+
+  it('should start with a score of 0', () => {
+    assert.equal(game.score, 0)
+  });
+
+  it('should start on level 1', () => {
+    assert.equal(game.level, 1)
+  });
+
+  it('should be able to detect the left boundary', () => {
+    game.ball.x = 1;
+    game.ball.dx = -2;
+    game.detectLeftBoundry();
+    assert.equal(game.ball.dx, 2)
+  });
+
+  it('should be able to detect the right boundary', () => {
+    game.ball.x = 519;
+    game.ball.dx = 2;
+    game.detectRightBoundry();
+    assert.equal(game.ball.dx, -2)
+  });
+
+  it('should be able to detect the top boundary', () => {
+    game.ball.y = 20;
+    game.ball.dy = -2;
+    game.detectTopBoundry();
+    assert.equal(game.ball.dy, 2)
+  });
+
+  it('should bounce up when it hits the paddle', () => {
+    game.ball.y = 490;
+    game.ball.dy = 2;
+    game.ball.x = 240;
+    game.detectBottomBoundry();
+    assert.equal(game.ball.dy, -2);
+  });
+
+  it.skip('should lose a life if it misses the paddle', () => {
+    game.ball.y = 495;
+    game.ball.dy = 2;
+    game.ball.x = 2;
+    game.detectBottomBoundry();
+    assert.equal(game.lives, 2);
+  });
+
+  it('should be able to detect collisions', () => {
+    game.ball.x = 30;
+    game.ball.y = 75;
+    game.collisionDetection();
+    assert.equal(game.bricks.brick.status, 0);
+  });
+
 });
