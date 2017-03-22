@@ -23,8 +23,7 @@
 }
 
 #level-up,
-#life-lost,
-#final-score {
+#life-lost {
  font-size: 100px;
  position: absolute;
  margin-top: 260px;
@@ -34,4 +33,24 @@
 
 #life-lost {
  font-size: 80px;
+}
+
+#final-score {
+  position: absolute;
+  width: 480px;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 260px;
+  text-align: center;
+  display: none;
+}
+
+#game-over {
+  font-size: 60px;
+  margin: 0;
+}
+
+#new-game {
+  font-size: 40px;
+  margin: 0;
 }
