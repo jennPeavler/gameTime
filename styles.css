@@ -22,10 +22,35 @@
   background: orange;
 }
 
-#level-up {
+#level-up,
+#life-lost {
  font-size: 100px;
  position: absolute;
- margin-top: 180px;
+ margin-top: 260px;
  margin-left: 30px;
  display: none;
+}
+
+#life-lost {
+ font-size: 80px;
+}
+
+#final-score {
+  position: absolute;
+  width: 480px;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 260px;
+  text-align: center;
+  display: none;
+}
+
+#game-over {
+  font-size: 60px;
+  margin: 0;
+}
+
+#new-game {
+  font-size: 40px;
+  margin: 0;
 }
