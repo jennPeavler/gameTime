@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const $ = require('jquery')
+// const $ = require('jquery');
 const Game = require('../lib/game');
 const Paddle = require('../lib/paddle');
 const Ball = require('../lib/ball');
