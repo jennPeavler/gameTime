@@ -1,3 +1,25 @@
+body {
+  margin: 0;
+  height: 100%;
+  color: #2E2E3A;
+  background-color: #FFFFFF
+}
+
+header {
+  background-color: #2E2E3A;
+  padding: 20px 0;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 12px;
+  color: #DE3C4B;
+}
+
 #canvas {
   border: 1px solid black;
 }
@@ -11,7 +33,17 @@
 }
 
 .instructions {
+  font-family: 'Open sans' , sans-serif;
   padding: 20px;
+  padding-top: 0;
+}
+
+h2 {
+  margin-top: 10;
+}
+
+li {
+  margin: 10px 0;
 }
 
 #scoreboard {
@@ -24,18 +56,22 @@
 
 #level-up,
 #life-lost {
- font-size: 100px;
- position: absolute;
- margin-top: 260px;
- margin-left: 30px;
- display: none;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 70px;
+  position: absolute;
+  margin-top: 260px;
+  margin-left: 30px;
+  display: none;
 }
 
-#life-lost {
+/*#life-lost {
  font-size: 80px;
-}
+}*/
 
 #final-score {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
   position: absolute;
   width: 480px;
   height: 200px;
@@ -46,11 +82,15 @@
 }
 
 #game-over {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
   font-size: 60px;
   margin: 0;
 }
 
 #new-game {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
   font-size: 40px;
   margin: 0;
 }

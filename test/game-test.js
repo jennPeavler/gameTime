@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const $ = require('jquery')
 const Game = require('../lib/game');
 const Paddle = require('../lib/paddle');
 const Ball = require('../lib/ball');
@@ -75,9 +76,22 @@ describe('Game', () => {
 
   it('should be able to detect collisions', () => {
     game.ball.x = 30;
-    game.ball.y = 75;
+    game.ball.y = 80;
+    game.bricks.brick[0][0].x = 20;
+    game.bricks.brick[0][0].y = 60;
+    assert.equal(game.bricks.brick[0][0].status, 1)
     game.collisionDetection();
-    assert.equal(game.bricks.brick.status, 0);
+    assert.equal(game.bricks.brick[0][0].status, 0)
+    assert.equal(game.score, 1)
+  });
+
+  it('should score a point after a brick has been hit', () => {
+    game.ball.x = 30;
+    game.ball.y = 80;
+    game.bricks.brick[0][0].x = 20;
+    game.bricks.brick[0][0].y = 60;
+    game.collisionDetection();
+    assert.equal(game.score, 1)
   });
 
 });

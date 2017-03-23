@@ -1,174 +1,70 @@
-# Game Time Starter Kit (FE - Module 1)
+# Game Time
 
-Basic Game Time starter kit.
+## Synopsis
 
-## Initial Setup
+ We were tasked with creating a working game utilizing TDD with object oriented programming principles in mind. A mid project refactor to ES6 was also implemented.
 
-One person from your project will sets up the repository. That one person should follow these steps:
-
-1. Clone this starter kit repository and rename the repository to `game-time` in one command
-
-  ```shell
-  git clone git@github.com:turingschool-examples/game-time-starter-kit-FEm1.git game-time
-  ```
-
-2. Change into the `game-time` directory
-
-3. Remove the default remote (origin)
-
-  ```shell
-  git remote rm origin
-  ```
-
-4. Create a new repository on GitHub named `game-time`
-
-5. Add your new repository remote to the game time starter kit - **your remote URL and user name will be different in the command below**
-
-  ```shell
-  git remote add origin git@github.com:robbiejaeger/game-time.git
-  ```
-
-6. Install the dependencies of the starter kit
-
-  ```shell
-  npm install
-  ```
-
-7. Add, commit, and push up to your repository
-
-  ```shell
-  git add .
-  git commit -m "Initial commit using starter kit"
-  git push origin master
-  ```
-
-8. Now add your team member(s) as collaborators to the repository. They can now clone down your `game-time` repository as normal.
-
-9. Once each partner clones down the repo, they need to run `npm install` to install the dependencies on their machine.
-
-## Run the Server
-
-To see your code in action, you need to fire up a development server. Use the command:
-
-```shell
-npm start
-```
-
-Once the server is running, visit in your browser:
-
-* `http://localhost:8080/webpack-dev-server/` to run your application.
-* `http://localhost:8080/webpack-dev-server/test.html` to run your test suite in the browser.
-
-To build the static files:
-
-```js
-npm run build
-```
-
-## Run Tests in the Terminal
-
-To run all of your tests:
-
-```js
-npm test
-```
-
-## File Organization
-
-Webpack is a little opinionated about how files are organized. Here is a brief guide on how to organize development and test files.
-
-### Development Files
-
-Node and webpack work together to help us organize our files and keep responsibilities separated.
-
-For example, if we have the `lib/index.js` file and a `lib/block.js` file:
-
-**lib/index.js**
+## Code Example
 
 ```javascript
-var Block = require('./block');
+class Paddle {
+  constructor (board) {
+    this.canvas = board.canvas;
+    this.context = board.context;
+    this.width = 80;
+    this.height = 10;
+    this.x = board.canvas.width/2 - this.width/2;
+    this.y = board.canvas.height - this.height;
+    this.moveRight = false;
+    this.moveLeft = false;
+  }
 
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
+  draw () {
+    this.context.fillStyle = '#2E2E3A';
+    this.context.fillRect(this.x, this.y, this.width, this.height);
+  }
 
-var blocks = [];
-
-blocks.push(new Block(50, 50, 10, 10, context));
-blocks.push(new Block(100, 50, 10, 10, context));
-
-requestAnimationFrame(function gameLoop() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  this.blocks.forEach(function(block){
-    block.draw()
-    block.move()
-  })
-
-  requestAnimationFrame(gameLoop);
-});
-```
-
-**lib/block.js**
-
-```javascript
-function Block(x, y, width, height, context) {
-  this.x = x;
-  this.y = y;
-  this.width = width;
-  this.height = height;
-  this.context = context;
+  move () {
+    if (this.moveRight && this.x < this.canvas.width-this.width) {
+      this.x += 7;
+    } if (this.moveLeft && this.x > 0) {
+      this.x -= 7;
+    }
+  }
 }
-
-Block.prototype.draw = function () {
-  this.context.fillRect(this.x, this.y, this.width, this.height);
-};
-
-Block.prototype.move = function () {
-  this.y++;
-};
-
-module.exports = Block;
 ```
 
-All of the `block.js` code could live in the `index.js` file, but that would go against our philosophy of separating responsibility between files.
+## Motivation
 
-There are two main things to pay attention to here:
+This project is part of the Turing School of Software and Designs Front-end Engineering program for module 2.
 
-1. At the top of the `index.js` file, we require the `block.js` file using the line of code `var Block = require('./block');` (we leave out the `.js`). This brings in the code from the `block.js` file so we can use that file's code in the `index.js` file.
 
-2. In the `block.js` file, the bottom line says `module.exports = Block;` which says what we want this file to export when we say `require` in other files, like in `index.js`.
+## Tests
 
-So now we have two files that can share code between each other, but we have to pay attention to what we export and what we require. If we didn't do this, then when we try to make a new Block in the `index.js` file, it won't know what Block we're talking about!
+The game.js file houses the bulk of the game's functionality and game play. We tested to see if collision detection and boundaries were working properly. As such the ball would continue moving and collision detection would score points.
 
-### Test Files
-
-Near the end of game time, you will have multiple objects for your game that are tested separately with individual test files. The `test/index.js` file serves as an "entry point" for mocha to load all of the tests you write.
-
-Test file organization is a bit different from development files. If we want to test the `block.js` file from above, then this is how we would do it. For each object file (in this case `block.js`), we want to have a corresponding test file. So in the `test` directory, we would create a new file called `test/block-test.js`. Here is what that file would look like:
-
-**test/block-test.js**
+examples:
 
 ```javascript
-var chai = require('chai');
-var assert = chai.assert;
+it('should be able to detect the right boundary', () => {
+  game.ball.x = 519;
+  game.ball.dx = 2;
+  game.detectRightBoundry();
+  assert.equal(game.ball.dx, -2)
+});
 
-var Block = require('../lib/block');
-
-describe('Block', function() {
-  context('with default attributes', function() {
-    // Your tests here...  
-  });  
+it('should be able to detect collisions', () => {
+  game.ball.x = 30;
+  game.ball.y = 80;
+  game.bricks.brick[0][0].x = 20;
+  game.bricks.brick[0][0].y = 60;
+  assert.equal(game.bricks.brick[0][0].status, 1)
+  game.collisionDetection();
+  assert.equal(game.bricks.brick[0][0].status, 0)
+  assert.equal(game.score, 1)
 });
 ```
 
-**test/index.js**
+## Contributors
 
-```javascript
-require('./block-test')
-```
-
-Two main points to pay attention to:
-
-1. In the `block-test.js` file, we require the `block.js` file so that we can construct blocks in our tests.
-
-2. In the `test/index.js` file, we require the `block-test.js` file so that we can view the test results in the browser (at `http://localhost:8080/webpack-dev-server/test.html`).
+Jack Bevis and Jenn Peavler
