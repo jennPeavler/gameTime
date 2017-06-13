@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var Ball = require('../lib/ball');
+var Ball = require('../lib/Ball');
 
 var board = {
   canvas: {width: 520, height: 500},

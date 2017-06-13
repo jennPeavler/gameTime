@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var Paddle = require('../lib/paddle');
+var Paddle = require('../lib/Paddle');
 
 describe('Paddle', () => {
   const board = {
