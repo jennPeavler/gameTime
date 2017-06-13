@@ -1,9 +1,9 @@
 const assert = require('chai').assert;
 // const $ = require('jquery');
-const Game = require('../lib/game');
-const Paddle = require('../lib/paddle');
-const Ball = require('../lib/ball');
-const Bricks = require('../lib/bricks');
+const Game = require('../lib/Game');
+const Paddle = require('../lib/Paddle');
+const Ball = require('../lib/Ball');
+const Bricks = require('../lib/Bricks');
 const board = {
   canvas: {width: 520, height: 500},
   context
