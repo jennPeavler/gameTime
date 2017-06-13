@@ -357,7 +357,7 @@
 	    }
 	  }
 
-	  place() {
+	  place(item) {
 	    this.context.fillStyle = '#F07821';
 	    for (let c = 0; c < this.columns; c++) {
 	      for (let r = 0; r < this.rows; r++) {
@@ -373,6 +373,7 @@
 	    // if it is call the function again until you get to the element
 	    // then draw the element.
 	  }
+
 	}
 
 	module.exports = Bricks;
