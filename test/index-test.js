@@ -1,4 +1,4 @@
-require('./ball-test')
-require('./bricks-test')
-require('./game-test')
-require('./paddle-test')
+require('../lib/Game');
+require('../lib/Ball');
+require('../lib/Bricks');
+require('../lib/Paddle');
