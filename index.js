@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
 
-var Game = require('./game');
+var Game = require('./lib/game');
 var game = new Game({canvas, context});
 
 document.addEventListener('keydown', function(event) {
